@@ -1,34 +1,47 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [ state, setState] = useState("")
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+function getValue(){
+  e => setState(value+e.target.value)
+
+}
+
+  
+  return (<>
+  <form action="">
+  <input id="calc-input" type = "text" value = {state}/>
+    <div id= "fourth-button-set">
+      <input type="button" value ="7" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="8" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="9" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="/" onClick = {e => setState(state + e.target.value)}/>
+    </div>
+    <div id= "third-button-set">
+      <input type="button" value ="4" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="5" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="6" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="*" onClick = {e => setState(state + e.target.value)}/>
+
+    </div>
+    <div id= "second-button-set">
+      <input type="button" value ="1" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="2" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="3" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="-" onClick = {e => setState(state + e.target.value)}/>
+    </div>
+    <div id= "first-button-set">
+      <input type="button" value ="0" onClick = {e => setState(state + e.target.value)}/>
+      <input type="button" value ="." onClick = {e => setState(state + e.target.value)}/>
+      <input type ="button" value ="=" onClick = {e => setState(eval(state))}/>
+      <input type="button" value ="+" onClick = {e => setState(state + e.target.value)}/>
+    </div>
+  </form>
+  </>
   )
 }
 
